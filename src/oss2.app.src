@@ -1,0 +1,12 @@
+{application, oss2,
+ [
+  {description, "Aliyun OSS SDK for Erlang"},
+  {vsn, "git"},
+  {applications, [xmerl, inets, crypto, ssl, hackney]},
+  {mod, {oss2_app, []}},
+  {registered, [oss2_sup]},
+  {env,[]},
+  {licenses, ["Apache"]},
+  {links,[{"GitHub","https://github.com/seniverse/aliyun-oss-erlang-sdk"}]}
+ ]
+}.
