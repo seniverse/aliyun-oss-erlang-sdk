@@ -27,10 +27,10 @@
      complete_multipart_upload/4]).
 
 set_config(Bucket, Config) ->
-    true = ets:insert(?MODULE, {Bucket, Config}).
+    ok = application:set_env(oss2, Bucket, Config).
 
 get_config(Bucket) ->
-    [{Bucket, Config}] = ets:lookup(?MODULE, Bucket),
+    {ok, Config} = application:get_env(oss2, Bucket),
     Config.
 
 head_object(Bucket, ObjectName) ->
