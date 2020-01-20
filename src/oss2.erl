@@ -242,8 +242,8 @@ sign(Secret, Method, MD5, Type, Date, Headers, Bucket, Resource) ->
 
 headers(Key, Secret, Method, Headers, Bucket, Resource, Data) ->
     MD5 = base64:encode(crypto:hash(md5, Data)),
-    [{<<"Content-MD5">>, MD5},
-     headers(Key, Secret, Method, MD5, <<"application/octet-stream">>, Headers, Bucket, Resource)].
+    [{<<"Content-MD5">>, MD5}
+     |headers(Key, Secret, Method, MD5, <<"application/octet-stream">>, Headers, Bucket, Resource)].
 
 headers(Key, Secret, Method, Headers, Bucket, Resource) ->
     headers(Key, Secret, Method, <<>>, <<>>, Headers, Bucket, Resource).
